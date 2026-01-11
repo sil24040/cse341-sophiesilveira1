@@ -5,24 +5,16 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "devStart": "nodemon server.js",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sil24040/cse341-sophiesilveira1.git"
   },
-  "keywords": [],
-  "author": "Sophie Silveira",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sil24040/cse341-sophiesilveira1/issues"
   },
-  "homepage": "https://github.com/sil24040/cse341-sophiesilveira1#readme",
-  "dependencies": {
-    "express": "^5.2.1"
-  },
-  "devDependencies": {
-    "nodemon": "^22.19.0"
-  }
+  "homepage": "https://github.com/sil24040/cse341-sophiesilveira1#readme"
 }

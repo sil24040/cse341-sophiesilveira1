@@ -1,5 +1,5 @@
-const getName = (req, res) => {
-    res.send('Ivan Ribeiro');
-  };
-  
-  module.exports = { getName };
+const IvanRibeiroFunction = (req, res, next) => {
+    res.json('Ivan Ribeiro');
+};
+
+module.exports = {IvanRibeiroFunction};

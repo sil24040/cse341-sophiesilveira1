@@ -1,7 +1,7 @@
 const routes = require('express').Router();
 
-const baseController = require('../controllers');
+const { IvanRibeiroFunction } = require('../controllers');
 
-routes.get('/', baseController.getName);
+routes.get('/',IvanRibeiroFunction);
 
 module.exports = routes;
