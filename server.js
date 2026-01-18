@@ -3,31 +3,33 @@ const path = require("path");
 
 const app = express();
 
-// Serve frontend files
+// Serve frontend folder as root
 app.use(express.static(path.join(__dirname, "frontend")));
 
-// Homepage
+// Home page
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "frontend", "index.html"));
 });
 
-// API endpoint required by frontend
+// API endpoint
 app.get("/professional", (req, res) => {
   res.json({
-    professionalName: "Sophie Silveira",
+    professionalName: "SOPHIE SILVEIRA",
 
-    base64Image: "",
+    imagePath: "/images/me.jpeg",
 
     nameLink: {
       firstName: "Sophie",
       url: "https://linkedin.com"
     },
 
-    primaryDescription: "Web Developer and UX Designer",
-    workDescription1: "University Relations UX Researcher",
-    workDescription2: "BYU-Idaho student",
+    primaryDescription: " is a Web Developer and UX Designer",
+    workDescription1:
+      "She works in the University Relations Department as a UX researcher",
+    workDescription2:
+      "She is a BYU-Idaho student, and graduates next semester",
 
-    linkTitleText: "Links",
+    linkTitleText: "Check out her links below:",
 
     linkedInLink: {
       text: "LinkedIn",
@@ -37,13 +39,11 @@ app.get("/professional", (req, res) => {
     githubLink: {
       text: "GitHub",
       link: "https://github.com"
-    },
-
-    contactText: "Email: example@email.com"
+    }
   });
 });
 
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () =>
-  console.log(`Server running on http://localhost:${PORT}`)
-);
+const PORT = 8080;
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
