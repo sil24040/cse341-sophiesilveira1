@@ -1,0 +1,26 @@
+{
+    "contacts": [
+      {
+        "firstName": "Sophie",
+        "lastName": "Silveira",
+        "email": "sil24040@byui.edu",
+        "favoriteColor": "Green",
+        "birthday": "1999-02-19"
+      },
+      {
+        "firstName": "Ivan",
+        "lastName": "Ribeiro",
+        "email": "ivan.ribeiro@example.com",
+        "favoriteColor": "Blue",
+        "birthday": "1996-05-14"
+      },
+      {
+        "firstName": "Rosa",
+        "lastName": "Silveira",
+        "email": "rosa.silveira@gmail.com",
+        "favoriteColor": "Red",
+        "birthday": "1964-08-02"
+      }
+    ]
+  }
+  

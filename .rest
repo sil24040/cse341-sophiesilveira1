@@ -1,4 +1,15 @@
-GET http://localhost:3000 HTTP/1.1
+### Root
+GET http://localhost:3000/
 
-###
-GET http://cse341-sophiesilveira1-5.onrender.com HTTP/1.1
+### Get all contacts
+GET http://localhost:3000/contacts
+
+### Get one contact by id (replace with a real _id from Atlas)
+GET http://localhost:3000/contacts?id=REPLACE_WITH_OBJECT_ID
+
+### Get Professional JSON
+GET http://localhost:8080/professional
+Accept: application/json
+
+### Get Homepage (HTML)
+GET http://localhost:8080/

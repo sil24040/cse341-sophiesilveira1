@@ -1,18 +1,49 @@
-const express = require('express');
-const connectDB = require('./db/connect');
+const express = require("express");
+const path = require("path");
 
 const app = express();
 
-app.use('/', require('./routes'));
+// Serve frontend files
+app.use(express.static(path.join(__dirname, "frontend")));
 
-const PORT = process.env.PORT || 3000;
+// Homepage
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "index.html"));
+});
 
-connectDB()
-  .then(() => {
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
-    });
-  })
-  .catch((err) => {
-    console.error('MongoDB connection failed:', err);
+// API endpoint required by frontend
+app.get("/professional", (req, res) => {
+  res.json({
+    professionalName: "Sophie Silveira",
+
+    base64Image: "",
+
+    nameLink: {
+      firstName: "Sophie",
+      url: "https://linkedin.com"
+    },
+
+    primaryDescription: "Web Developer and UX Designer",
+    workDescription1: "University Relations UX Researcher",
+    workDescription2: "BYU-Idaho student",
+
+    linkTitleText: "Links",
+
+    linkedInLink: {
+      text: "LinkedIn",
+      link: "https://linkedin.com"
+    },
+
+    githubLink: {
+      text: "GitHub",
+      link: "https://github.com"
+    },
+
+    contactText: "Email: example@email.com"
   });
+});
+
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () =>
+  console.log(`Server running on http://localhost:${PORT}`)
+);
