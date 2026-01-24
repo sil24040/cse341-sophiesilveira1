@@ -45,13 +45,13 @@ DELETE http://localhost:8080/contacts/PASTE_ID_HERE HTTP/1.1
 // =======================
 
 ### Root (RENDER)
-GET https://YOUR-RENDER-URL.onrender.com/
+GET https://cse341-sophiesilveira1-11.onrender.com
 
 ### All contacts (RENDER)
-GET https://YOUR-RENDER-URL.onrender.com/contacts
+GET https://cse341-sophiesilveira1-11.onrender.com/contacts
 
 ### Create contact (RENDER) -> expects 201 + { "id": "..." }
-POST https://YOUR-RENDER-URL.onrender.com/contacts HTTP/1.1
+POST https://cse341-sophiesilveira1-11.onrender.com/contacts HTTP/1.1
 content-type: application/json
 
 {

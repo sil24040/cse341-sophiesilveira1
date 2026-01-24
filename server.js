@@ -1,31 +1,29 @@
 const express = require("express");
-const path = require("path");
+const dotenv = require("dotenv");
 const mongodb = require("./db/connect");
+
+dotenv.config();
 
 const app = express();
 
-// Middleware
-app.use(express.json());
-app.use(express.static(path.join(__dirname, "frontend")));
+app.use(express.json()); // REQUIRED for POST/PUT body
+app.use(express.urlencoded({ extended: true }));
 
-// Serve frontend page at /
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "index.html"));
+  res.status(200).send("API is running");
 });
 
-// Mount API routes
 app.use("/", require("./routes"));
 
-const PORT = process.env.PORT || 8080;
+const port = process.env.PORT || 8080;
 
-// Connect DB first, then start server
 mongodb.initDb((err) => {
   if (err) {
-    console.error(err);
+    console.error("DB connection failed:", err);
     process.exit(1);
+  } else {
+    app.listen(port, () => {
+      console.log(`Listening on port ${port}`);
+    });
   }
-
-  app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-  });
 });
