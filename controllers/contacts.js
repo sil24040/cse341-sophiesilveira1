@@ -35,6 +35,10 @@ const createContact = async (req, res) => {
 };
 
 const updateContact = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json('Invalid contact id.');
+    return;
+  }
   const userId = new ObjectId(req.params.id);
   // be aware of updateOne if you only want to update specific fields
   const contact = {
@@ -44,16 +48,25 @@ const updateContact = async (req, res) => {
     favoriteColor: req.body.favoriteColor,
     birthday: req.body.birthday
   };
-  const response = await mongodb
-    .getDb()
-    .db()
-    .collection('contacts')
-    .replaceOne({ _id: userId }, contact);
-  console.log(response);
-  if (response.modifiedCount > 0) {
-    res.status(204).send();
-  } else {
-    res.status(500).json(response.error || 'Some error occurred while updating the contact.');
+  try {
+    const response = await mongodb
+      .getDb()
+      .db()
+      .collection('contacts')
+      .updateOne({ _id: userId }, { $set: contact });
+    console.log(response);
+    if (!response.acknowledged) {
+      res.status(500).json(response.error || 'Some error occurred while updating the contact.');
+      return;
+    }
+
+    if (response.matchedCount > 0) {
+      res.status(204).send();
+    } else {
+      res.status(404).json('Contact not found.');
+    }
+  } catch (error) {
+    res.status(500).json(error.message || 'Some error occurred while updating the contact.');
   }
 };
 
