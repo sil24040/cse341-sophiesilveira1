@@ -40,7 +40,6 @@ const updateContact = async (req, res) => {
     return;
   }
   const userId = new ObjectId(req.params.id);
-  // be aware of updateOne if you only want to update specific fields
   const contact = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -53,7 +52,7 @@ const updateContact = async (req, res) => {
       .getDb()
       .db()
       .collection('contacts')
-      .updateOne({ _id: userId }, { $set: contact });
+      .replaceOne({ _id: userId }, contact);
     console.log(response);
     if (!response.acknowledged) {
       res.status(500).json(response.error || 'Some error occurred while updating the contact.');
