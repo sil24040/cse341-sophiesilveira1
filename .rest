@@ -1,15 +1,87 @@
-### Root
-GET http://localhost:3000/
+// =======================
+// LOCALHOST
+// =======================
 
-### Get all contacts
-GET http://localhost:3000/contacts
-
-### Get one contact by id (replace with a real _id from Atlas)
-GET http://localhost:3000/contacts?id=REPLACE_WITH_OBJECT_ID
-
-### Get Professional JSON
-GET http://localhost:8080/professional
-Accept: application/json
-
-### Get Homepage (HTML)
+### Get root (LOCAL)
 GET http://localhost:8080/
+
+### Get johnclark (LOCAL)
+GET http://localhost:8080/johnclark
+
+### Get all contacts (LOCAL)
+GET http://localhost:8080/contacts
+
+### Get contact by id (LOCAL)
+GET http://localhost:8080/contacts/PASTE_ID_HERE
+
+### Create contact (LOCAL) -> expects 201 + { "id": "..." }
+POST http://localhost:8080/contacts HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "Ivan",
+  "lastName": "Ribeiro",
+  "email": "ivan@example.com",
+  "favoriteColor": "Blue",
+  "birthday": "1996-01-01"
+}
+
+### Update contact (LOCAL) -> expects 204
+PUT http://localhost:8080/contacts/PASTE_ID_HERE HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "Ivan",
+  "lastName": "Ribeiro",
+  "email": "ivan.updated@example.com",
+  "favoriteColor": "Green",
+  "birthday": "1996-01-01"
+}
+
+### Delete contact (LOCAL) -> expects 200
+DELETE http://localhost:8080/contacts/PASTE_ID_HERE HTTP/1.1
+
+
+
+// =======================
+// PRODUCTION (RENDER)
+// =======================
+
+### Get root (RENDER)
+GET https://cse341-sophiesilveira1-8.onrender.com/
+
+### Get johnclark (RENDER)
+GET https://cse341-sophiesilveira1-8.onrender.com/johnclark
+
+### Get all contacts (RENDER)
+GET https://cse341-sophiesilveira1-8.onrender.com/contacts
+
+### Get contact by id (RENDER)
+GET https://cse341-sophiesilveira1-8.onrender.com/contacts/PASTE_ID_HERE
+
+### Create contact (RENDER) -> expects 201 + { "id": "..." }
+POST https://cse341-sophiesilveira1-8.onrender.com/contacts HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "Render",
+  "lastName": "Test",
+  "email": "render.test@example.com",
+  "favoriteColor": "Red",
+  "birthday": "2000-01-01"
+}
+
+### Update contact (RENDER) -> expects 204
+PUT https://cse341-sophiesilveira1-8.onrender.com/contacts/PASTE_ID_HERE HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "Render",
+  "lastName": "Test Updated",
+  "email": "render.updated@example.com",
+  "favoriteColor": "Purple",
+  "birthday": "2000-01-01"
+}
+
+### Delete contact (RENDER) -> expects 200
+DELETE https://cse341-sophiesilveira1-8.onrender.com/contacts/PASTE_ID_HERE HTTP/1.1
