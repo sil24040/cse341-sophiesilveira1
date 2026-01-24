@@ -19,26 +19,5 @@
     "email": "rosa.silveira@gmail.com",
     "favoriteColor": "Red",
     "birthday": "1964-08-02"
-  },
-  {
-    "firstName": "Emily",
-    "lastName": "Carter",
-    "email": "emily.carter@email.com",
-    "favoriteColor": "Purple",
-    "birthday": "1988-09-14"
-  },
-  {
-    "firstName": "Daniel",
-    "lastName": "Morales",
-    "email": "daniel.morales@email.com",
-    "favoriteColor": "Navy",
-    "birthday": "1992-01-03"
-  },
-  {
-    "firstName": "Hannah",
-    "lastName": "Nguyen",
-    "email": "hannah.nguyen@email.com",
-    "favoriteColor": "Teal",
-    "birthday": "1995-07-27"
   }
 ]

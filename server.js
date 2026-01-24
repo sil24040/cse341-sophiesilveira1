@@ -23,7 +23,7 @@ mongodb.initDb((err) => {
     process.exit(1);
   } else {
     app.listen(port, () => {
-      console.log(`Listening on port ${port}`);
+      console.log(`Listening on http://localhost:${port}`);
     });
   }
 });
