@@ -2,17 +2,11 @@
 // LOCALHOST
 // =======================
 
-### Get root (LOCAL)
+### Root (LOCAL)
 GET http://localhost:8080/
 
-### Get johnclark (LOCAL)
-GET http://localhost:8080/johnclark
-
-### Get all contacts (LOCAL)
+### All contacts (LOCAL)
 GET http://localhost:8080/contacts
-
-### Get contact by id (LOCAL)
-GET http://localhost:8080/contacts/PASTE_ID_HERE
 
 ### Create contact (LOCAL) -> expects 201 + { "id": "..." }
 POST http://localhost:8080/contacts HTTP/1.1
@@ -25,6 +19,9 @@ content-type: application/json
   "favoriteColor": "Blue",
   "birthday": "1996-01-01"
 }
+
+### Get contact by id (LOCAL)
+GET http://localhost:8080/contacts/PASTE_ID_HERE
 
 ### Update contact (LOCAL) -> expects 204
 PUT http://localhost:8080/contacts/PASTE_ID_HERE HTTP/1.1
@@ -47,20 +44,14 @@ DELETE http://localhost:8080/contacts/PASTE_ID_HERE HTTP/1.1
 // PRODUCTION (RENDER)
 // =======================
 
-### Get root (RENDER)
-GET https://cse341-sophiesilveira1-8.onrender.com/
+### Root (RENDER)
+GET https://YOUR-RENDER-URL.onrender.com/
 
-### Get johnclark (RENDER)
-GET https://cse341-sophiesilveira1-8.onrender.com/johnclark
-
-### Get all contacts (RENDER)
-GET https://cse341-sophiesilveira1-8.onrender.com/contacts
-
-### Get contact by id (RENDER)
-GET https://cse341-sophiesilveira1-8.onrender.com/contacts/PASTE_ID_HERE
+### All contacts (RENDER)
+GET https://YOUR-RENDER-URL.onrender.com/contacts
 
 ### Create contact (RENDER) -> expects 201 + { "id": "..." }
-POST https://cse341-sophiesilveira1-8.onrender.com/contacts HTTP/1.1
+POST https://YOUR-RENDER-URL.onrender.com/contacts HTTP/1.1
 content-type: application/json
 
 {
@@ -71,8 +62,11 @@ content-type: application/json
   "birthday": "2000-01-01"
 }
 
+### Get contact by id (RENDER)
+GET https://YOUR-RENDER-URL.onrender.com/contacts/PASTE_ID_HERE
+
 ### Update contact (RENDER) -> expects 204
-PUT https://cse341-sophiesilveira1-8.onrender.com/contacts/PASTE_ID_HERE HTTP/1.1
+PUT https://YOUR-RENDER-URL.onrender.com/contacts/PASTE_ID_HERE HTTP/1.1
 content-type: application/json
 
 {
@@ -84,4 +78,4 @@ content-type: application/json
 }
 
 ### Delete contact (RENDER) -> expects 200
-DELETE https://cse341-sophiesilveira1-8.onrender.com/contacts/PASTE_ID_HERE HTTP/1.1
+DELETE https://YOUR-RENDER-URL.onrender.com/contacts/PASTE_ID_HERE HTTP/1.1

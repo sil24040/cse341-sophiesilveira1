@@ -1,7 +1,7 @@
 {
   "name": "cse341-sophiesilveira1",
   "version": "1.0.0",
-  "description": "",
+  "description": "CSE 341 contacts API",
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
