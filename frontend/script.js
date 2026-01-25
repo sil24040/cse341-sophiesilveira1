@@ -5,20 +5,24 @@ async function apiFetch(url) {
 }
 
 function displayAllData(data) {
-  document.getElementById("professionalName").textContent = data.professionalName;
+  document.getElementById("professionalName").textContent =
+    data.professionalName;
 
   const img = document.getElementById("professionalImage");
-  img.src = data.imagePath; // example: "/images/me.jpeg"
+  img.src = data.imagePath;
   img.alt = "Professional Image";
 
   const nameLink = document.getElementById("nameLink");
   nameLink.textContent = data.nameLink.firstName;
   nameLink.href = data.nameLink.url;
 
-  document.getElementById("primaryDescription").textContent = data.primaryDescription;
+  document.getElementById("primaryDescription").textContent =
+    data.primaryDescription;
 
-  document.getElementById("workDescription1").textContent = data.workDescription1;
-  document.getElementById("workDescription2").textContent = data.workDescription2;
+  document.getElementById("workDescription1").textContent =
+    data.workDescription1;
+  document.getElementById("workDescription2").textContent =
+    data.workDescription2;
 
   document.getElementById("linkTitleText").textContent = data.linkTitleText;
 

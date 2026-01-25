@@ -7,11 +7,19 @@ const getData = async (req, res) => {
 
     res.setHeader("Content-Type", "application/json");
 
-    if (!lists[0]) return res.status(404).json({ message: "No user profile found in 'user' collection." });
+    if (!lists[0]) {
+      return res
+        .status(404)
+        .json({ message: "No user profile found in 'user' collection." });
+    }
 
-    res.status(200).json(lists[0]); // single profile
+    return res.status(200).json(lists[0]);
   } catch (error) {
-    res.status(500).json({ message: "An unexpected error occurred.", error: error.message });
+    console.error("GET /professional error:", error);
+    return res.status(500).json({
+      message: "An unexpected error occurred.",
+      error: error.message,
+    });
   }
 };
 

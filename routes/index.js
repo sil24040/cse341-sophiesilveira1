@@ -1,6 +1,12 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-router.use('/contacts', require('./contacts'));
+router.get("/", (req, res) => res.status(200).send("API is running"));
+
+// Contacts API
+router.use("/contacts", require("./contacts"));
+
+// Professional profile API
+router.use("/professional", require("./professional"));
 
 module.exports = router;
