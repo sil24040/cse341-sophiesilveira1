@@ -13,12 +13,13 @@ const getAll = async (req, res) => {
 
     return res.status(200).json(result);
   } catch (err) {
-    console.error("PUT /contacts/:id error FULL:", err); // FULL ERROR
+    console.error("GET /contacts error FULL:", err);
     return res.status(500).json({
-      message: "Some error occurred while updating the contact.",
-      error: err.message
+      message: "Some error occurred while fetching contacts.",
+      error: err.message,
     });
-  }  
+  }
+}; // ✅ THIS was missing in your file
 
 // GET /contacts/:id
 const getSingle = async (req, res) => {
@@ -61,9 +62,16 @@ const createContact = async (req, res) => {
       birthday: req.body.birthday,
     };
 
-    if (!contact.firstName || !contact.lastName || !contact.email) {
+    // NOTE: Rubric says "All fields are required"
+    if (
+      !contact.firstName ||
+      !contact.lastName ||
+      !contact.email ||
+      !contact.favoriteColor ||
+      !contact.birthday
+    ) {
       return res.status(400).json({
-        message: "firstName, lastName, and email are required.",
+        message: "All fields are required: firstName, lastName, email, favoriteColor, birthday.",
       });
     }
 
@@ -88,9 +96,6 @@ const createContact = async (req, res) => {
 // PUT /contacts/:id
 const updateContact = async (req, res) => {
   try {
-    console.log("PARAM ID:", req.params.id);
-    console.log("BODY:", req.body);
-
     const { id } = req.params;
 
     if (!ObjectId.isValid(id)) {
@@ -107,9 +112,16 @@ const updateContact = async (req, res) => {
       birthday: req.body.birthday,
     };
 
-    if (!contact.firstName || !contact.lastName || !contact.email) {
+    // NOTE: Rubric says "All fields are required"
+    if (
+      !contact.firstName ||
+      !contact.lastName ||
+      !contact.email ||
+      !contact.favoriteColor ||
+      !contact.birthday
+    ) {
       return res.status(400).json({
-        message: "firstName, lastName, and email are required.",
+        message: "All fields are required: firstName, lastName, email, favoriteColor, birthday.",
       });
     }
 
