@@ -3,6 +3,9 @@ const dotenv = require("dotenv");
 const path = require("path");
 const mongodb = require("./db/connect");
 
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
+
 dotenv.config();
 
 const app = express();
@@ -27,6 +30,9 @@ app.use((req, res, next) => {
 
 // Serve frontend (optional, if you want to hit / in browser)
 app.use(express.static(path.join(__dirname, "frontend")));
+
+// Swagger docs
+app.use("/api-docs", ...swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // API routes
 app.use("/", require("./routes"));
